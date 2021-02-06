@@ -15,5 +15,5 @@ This is a horizonally scalable RTMP deployment. The way this works is we start s
 # To Do:
   - Add ability to store the stream in server
 
-# Architecture
+# Architecture:
 ![alt text](rtmp-final.png "Architecture")
