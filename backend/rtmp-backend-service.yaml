@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: rtmp-backend-service
+  namespace: rtmp
+spec:
+  selector:
+    deployment: rtmp-backend
+  type: NodePort
+  ports:
+  - name: rtmp-port
+    port: 1935
+    targetPort: 1935
+    protocol: TCP
+  - name: dashboard
+    port: 8000
+    targetPort: 8000
+    protocol: TCP
+

@@ -15,7 +15,7 @@ const config = {
       {
         app: 'live',
         mode: 'push',
-        edge: 'rtmp://rtmp.svc.rtmp-backend:1935',
+        edge: 'rtmp://rtmp-backend-service:1935',
       }
     ]
   },
