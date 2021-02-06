@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rtmp-relay-deployment
+  namespace: rtmp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      deployment: rtmp-relay
+  template:
+    metadata:
+      labels:
+        deployment: rtmp-relay
+    spec:
+      containers:
+      - name: rtmp-relay
+        image: shubhindia/node-rtmp-relay
+        livenessProbe:
+          exec:
+           command:
+            - /bin/sh
+            - -c
+            - nc -z localhost 8000
+          initialDelaySeconds: 10
+          periodSeconds: 10
+        readinessProbe:
+          exec:
+            command:
+              - /bin/sh
+              - -c
+              - nc -z localhost 8000
+          initialDelaySeconds: 10
+          periodSeconds: 10
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 1935
+          protocol: TCP
+        - containerPort: 8000
+          protocol: TCP
+        resources:
+          requests:
+            memory: "500M"
+            cpu: "100m"
+
+
+

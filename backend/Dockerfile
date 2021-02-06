@@ -2,6 +2,8 @@ FROM node:alpine
 
 LABEL maintainer="shubhindia <shubhindia123@gmail.com>"
 WORKDIR /usr/app
+# Install netcat for port checking
+RUN apk add --update netcat-openbsd
 
 # Install some dependencies
 COPY ./package.json ./
