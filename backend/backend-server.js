@@ -9,17 +9,6 @@ const config = {
     ping_timeout: 60
   },
 
-  relay: {
-    ffmpeg: '/usr/bin/ffmpeg',
-    tasks: [
-      {
-        app: 'live',
-        mode: 'push',
-        edge: 'rtmp://rtmp.svc.rtmp-backend:1935',
-      }
-    ]
-  },
-
   http: {
     port: 8000,
     allow_origin: '*'
